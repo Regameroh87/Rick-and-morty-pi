@@ -1,0 +1,23 @@
+.divCard {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    width: 250px;
+    height: 400px;
+    margin: 100px 30px;
+    border: 4px solid rgb(26, 255, 26);
+    border-radius: 20px;
+
+}
+
+.divInfo {
+    flex:auto;
+    width: 100%;
+    color:white;
+}
+
+.Image{
+    flex:auto;
+    border-radius: 20px;
+    width: 100%;
+}

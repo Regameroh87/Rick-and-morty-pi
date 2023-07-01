@@ -1,0 +1,13 @@
+.divAbout {
+  position: fixed;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://www.xtrafondos.com/wallpapers/rick-y-morty-portal-dimensional-6603.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
