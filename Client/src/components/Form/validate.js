@@ -1,7 +1,6 @@
 export default function validate(inputs) {
     const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-    const regexPassword =
-      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?.&])[A-Za-z\d@$!%*?.&]{6,10}$/;
+    const regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?.&])[A-Za-z\d@$!%*?.&]{6,10}$/;
     const errors = {};
     !inputs.email ? (errors.email = "Campo obligatorio") : (errors.email = "");
     inputs.email.length > 35
