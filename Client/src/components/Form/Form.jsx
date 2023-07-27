@@ -28,8 +28,8 @@ export default function Form({ login }) {
   return (
     <div className={styled.divForm}>
       <form className={styled.form} onSubmit={handleSubmit}>
-        <div classname={styled.divInput}>
-          <label className={styled.label} htmlfor="email">
+        <div className={styled.divInput}>
+          <label className={styled.label} htmlFor="email">
             Email:
           </label>
           <input
@@ -41,7 +41,7 @@ export default function Form({ login }) {
           <p>{errors.email}</p>
         </div>
         <div className={styled.divInput}>
-          <label className={styled.label} htmlfor="password">
+          <label className={styled.label} htmlFor="password">
             Password:
           </label>
           <input

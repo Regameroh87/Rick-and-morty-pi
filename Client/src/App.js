@@ -15,14 +15,18 @@ function App() {
    const [characters, setCharacters]= useState([]);
    const [access, setAccess] = useState(false);
    const location = useLocation();
-   const navigate = useNavigate();    
-   const EMAIL = "rodri@mail.com";
-   const PASSWORD = "Rodri87#";
+   const navigate = useNavigate();
+   const URL_BASE= "http://localhost:3001/rickandmorty/"   
    
-   function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
-         navigate('/home');
+   async function login(userData) {
+      const {email, password} = userData
+      try {
+         const { data } = await axios.get(`${URL_BASE}login?email=${email}&password=${password}`)
+         const { access } = data
+         setAccess(access);
+         access && navigate('/home')
+      } catch (error){
+         window.alert(error.message)
       }
    };
 
@@ -30,14 +34,26 @@ function App() {
       !access && navigate('/');
    }, [access]);
 
-   function onSearch(id) {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+   async function onSearch(id) {
+      try {
+         const { data } = await axios(`${URL_BASE}characters/${id}`)
+         if (data.name) {
+            setCharacters((oldchars) => [...oldchars, data]);
+         }
+      } catch (error) {
+         window.alert(error.message)
+      }
+   };
+
+// PETICION CON PROMESAS:
+
+      /* axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
          if (data.name) {
             setCharacters((oldchars) => [...oldchars, data]);
          }
       })
-      .catch (error => window.alert(error.response.data.error));
-   };
+      .catch (error => window.alert(error.response.data.error)); */
+
 
    function onClose (id){
       const newCharacters = characters.filter((character)=>character.id !== Number(id));
